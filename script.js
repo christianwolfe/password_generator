@@ -1,25 +1,26 @@
-
-
-
 var generateBtn = document.querySelector("#generate");
-
 //empty array to push random password to
 var passArray = [];
 var password = "";
 var finalPassword = [];
 
 
-//collect parameters from user
+//random number generate functions
+// charset - http://net-comber.com/charset.html
+// (math.floor to round down to whole number (random decimal * limit) + starting point of letter range)
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+
 }
 
 function getRandomUpper() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+
 }
 
 function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+
 }
 
 function getRandomChar() {
@@ -36,6 +37,7 @@ function writePassword() {
 }
 generateBtn.addEventListener("click", writePassword);
 
+
 //password generator
 function generatePassword() {
   var userInput = prompt("Choose number of characters (9-129)");
@@ -45,6 +47,12 @@ function generatePassword() {
   else if (userInput > 129) {
 
     alert("Password cannot exceed 129 characters.");
+  }
+
+  // if user does not input a number, recalls genereatePassword()
+  else if (isNaN(userInput)) {
+    alert("Not a number.");
+    generatePassword();
   }
   //aceptable number of characters
   if (userInput => 9 && userInput <= 129) {
@@ -68,13 +76,6 @@ function generatePassword() {
 
     }
   }
-  // if user does not input a number, recalls genereatePassword()
-  else if (isNaN(userInput)) {
-    alert("Not a number.");
-    generatePassword();
-  }
-
-
   //loop to add number of characters to password
   for (var i = 0; i < userInput; i++) {
     var randomPass = passArray[Math.floor(Math.random() * passArray.length)];
@@ -83,11 +84,6 @@ function generatePassword() {
     finalPassword.push(randomPass);
 
   }
+  console.log(passArray);
   return finalPassword.join("");
 }
-
-
-//random number generate functions
-// charset - http://net-comber.com/charset.html
-// (math.floor to round down to whole number (random decimal * limit) + starting point of letter range)
-
