@@ -1,16 +1,20 @@
-## Password Generator   
+# Pasword Generator
 
-# Objectives
+## Objectives
 
 ✓   Application prompts user for password length and if they would like to include lowercased, uppercased, numeric, and special characters.
+
 ✓   Application generates valid password based on provided options.
+
 ✓   Application requires minimum password length of 8 characters.
+
 ✓   Application requires maximum password length of 128 characters.
+
 ✓   Application is free of console errors.
 
-# Usage
+## Usage
 This is a personal homework assignemnt for the UCF MERN Stack Bootcamp.
 
-# Link to deployed application
+## Link to Deployed Application
 
 http://christianwolfe.github.io/password_generator
